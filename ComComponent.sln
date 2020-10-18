@@ -6,10 +6,42 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A594413-D350-4A5D-BA27-9DA190004FA3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{BE641DE8-9DD2-41D2-93BC-9FCFCA95B086}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{18AA2E5B-CA96-44B7-B1AF-8FB9DF270ECB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clients", "clients", "{6CAFFB35-2001-47DE-A351-4905631A12A3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CarComponent", "src\components\CarComponent\CarComponent.vcxproj", "{59A408DB-A660-4F39-9488-ED2292E4628D}"
 EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Debug|x64.ActiveCfg = Debug|x64
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Debug|x64.Build.0 = Debug|x64
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Debug|x86.ActiveCfg = Debug|Win32
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Debug|x86.Build.0 = Debug|Win32
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Release|x64.ActiveCfg = Release|x64
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Release|x64.Build.0 = Release|x64
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Release|x86.ActiveCfg = Release|Win32
+		{59A408DB-A660-4F39-9488-ED2292E4628D}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{18AA2E5B-CA96-44B7-B1AF-8FB9DF270ECB} = {5A594413-D350-4A5D-BA27-9DA190004FA3}
+		{6CAFFB35-2001-47DE-A351-4905631A12A3} = {5A594413-D350-4A5D-BA27-9DA190004FA3}
+		{59A408DB-A660-4F39-9488-ED2292E4628D} = {18AA2E5B-CA96-44B7-B1AF-8FB9DF270ECB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74AE9AF0-EB5A-407E-A910-456A0BE30800}

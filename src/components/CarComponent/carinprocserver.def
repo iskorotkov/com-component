@@ -1,0 +1,5 @@
+LIBRARY "CarComponent"
+
+EXPORTS
+	DllGetClassObject PRIVATE
+	DllCanUnloadNow PRIVATE
