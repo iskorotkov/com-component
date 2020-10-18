@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{BE641DE8
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
 		README.md = README.md
+		carcomponent.reg = carcomponent.reg
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components", "components", "{18AA2E5B-CA96-44B7-B1AF-8FB9DF270ECB}"
