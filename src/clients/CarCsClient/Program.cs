@@ -5,6 +5,7 @@ namespace CarCsClient
 {
     internal static class Program
     {
+        [STAThread]
         private static void Main()
         {
             var car = new Car();
@@ -15,7 +16,7 @@ namespace CarCsClient
             var iStats = (IStats) car;
             string petName = null;
             iStats.GetPetName(ref petName);
-            Console.WriteLine($"Pet name is '{petName}'");
+            Console.WriteLine($"Pet's name is '{petName}'.");
         }
     }
 
