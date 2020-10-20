@@ -4,11 +4,13 @@
 const int MAX_SPEED = 1000;
 const int MAX_NAME_LENGTH = 256;
 
-class CoCar : public IEngine, public ICreateCar, public IStats
+class CoCar : public IEngine, public ICreateCar, public IStats, public IDispatch
 {
 public:
 	CoCar();
 	virtual ~CoCar();
+
+	HRESULT Init();
 
 	// IUnknown
 	STDMETHODIMP QueryInterface(REFIID riid, void** pIFace) override;
@@ -28,9 +30,18 @@ public:
 	STDMETHODIMP SetPetName(BSTR petName) override;
 	STDMETHODIMP SetMaxSpeed(int maxSp) override;
 
+	// IDispatch
+	STDMETHODIMP GetTypeInfoCount(UINT* pctinfo) override;
+	STDMETHODIMP GetTypeInfo(UINT iTInfo, LCID lcid, ITypeInfo** ppTInfo) override;
+	STDMETHODIMP GetIDsOfNames(const IID& riid, LPOLESTR* rgszNames, UINT cNames, LCID lcid, DISPID* rgDispId) override;
+	STDMETHODIMP Invoke(DISPID dispIdMember, const IID& riid, LCID lcid, WORD wFlags, DISPPARAMS* pDispParams,
+		VARIANT* pVarResult, EXCEPINFO* pExcepInfo, UINT* puArgErr) override;
+
 private:
-	DWORD _refCount;
+	DWORD _refCount = 0;
 	BSTR _petName;
-	int _maxSpeed;
-	int _curSpeed;
+	int _maxSpeed = 0;
+	int _curSpeed = 0;
+
+	ITypeInfo* _typeInfo{};
 };

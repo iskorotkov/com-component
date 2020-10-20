@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace CarCsClient
 {
@@ -8,15 +9,27 @@ namespace CarCsClient
         [STAThread]
         private static void Main()
         {
-            var car = new Car();
+            var carType = Type.GetTypeFromProgID("CarComponent.CoCar");
+            var car = Activator.CreateInstance(carType!);
+
+            var iDisp = (IDispatch) car;
+            var count = iDisp!.GetTypeInfoCount();
+            Console.WriteLine($"Type info count is {count}.");
+
+            var iEngine = (IEngine) car;
+            iEngine!.SpeedUp();
+            var speed = 0;
+            iEngine.GetCurSpeed(ref speed);
+            Console.WriteLine($"Car speed is {speed}.");
+
             var iCrCar = (ICreateCar) car;
             Console.Write("Enter pet name: ");
-            iCrCar.SetPetName(Console.ReadLine());
+            iCrCar!.SetPetName(Console.ReadLine());
 
             var iStats = (IStats) car;
             string petName = null;
-            iStats.GetPetName(ref petName);
-            Console.WriteLine($"Pet's name is '{petName}'.");
+            iStats!.GetPetName(ref petName);
+            Console.WriteLine($"Pet name is '{petName}'.");
         }
     }
 
@@ -45,5 +58,19 @@ namespace CarCsClient
         void SpeedUp();
         void GetMaxSpeed(ref int curSpeed);
         void GetCurSpeed(ref int maxSpeed);
+    }
+
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("00020400-0000-0000-C000-000000000046")]
+    public interface IDispatch
+    {
+        int GetTypeInfoCount();
+
+        [return: MarshalAs(UnmanagedType.Interface)]
+        ITypeInfo GetTypeInfo([In, MarshalAs(UnmanagedType.U4)] int iTInfo, [In, MarshalAs(UnmanagedType.U4)] int lcid);
+
+        void GetIDsOfNames([In] ref Guid riid, [In, MarshalAs(UnmanagedType.LPArray)] string[] rgszNames,
+            [In, MarshalAs(UnmanagedType.U4)] int cNames, [In, MarshalAs(UnmanagedType.U4)] int lcid,
+            [Out, MarshalAs(UnmanagedType.LPArray)]
+            int[] rgDispId);
     }
 }
