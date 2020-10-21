@@ -45,4 +45,9 @@
   <ItemGroup>
     <None Include="carinprocserver.def" />
   </ItemGroup>
+  <ItemGroup>
+    <Midl Include="carinprocserver.idl">
+      <Filter>Source Files</Filter>
+    </Midl>
+  </ItemGroup>
 </Project>

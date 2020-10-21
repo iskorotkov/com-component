@@ -1,0 +1,63 @@
+import "oaidl.idl";
+import "ocidl.idl";
+import "objidl.idl";
+import "wtypes.idl";
+
+[
+	object,
+	uuid(1F3FCB12-5EB6-4E4F-94CF-99642FFC50C0),
+	dual,
+	helpstring("IEngine Interface"),
+	pointer_default(unique)
+]
+interface IEngine : IDispatch
+{
+	HRESULT SpeedUp();
+	HRESULT GetMaxSpeed([out] int* maxSpeed);
+	HRESULT GetCurSpeed([out] int* curSpeed);
+}
+
+[
+	object,
+	uuid(A9490BD6-E266-411A-9511-5EC1250A3328),
+	dual,
+	helpstring("IStats Interface"),
+	pointer_default(unique)
+]
+interface IStats : IDispatch
+{
+	HRESULT DisplayStats();
+	HRESULT GetPetName([out] BSTR* petName);
+}
+
+[
+	object,
+	uuid(08CCACA1-3342-4689-AE23-72B6329E9FD7),
+	dual,
+	helpstring("ICreateCar Interface"),
+	pointer_default(unique)
+]
+interface ICreateCar : IDispatch
+{
+	HRESULT SetPetName([in] BSTR maxSpeed);
+	HRESULT SetMaxSpeed([in] int curSpeed);
+}
+
+[
+	uuid(F13E8FBA-40FF-4F09-9101-314FB9C8C1DD),
+	version(1.0),
+	helpstring("Car Component 1.0 Type Library")
+]
+library CarComponent
+{
+	[
+		uuid(97B98437-966B-4F72-9527-363603BD8572),
+		helpstring("Car Class"),
+	]
+	coclass CoCar
+	{
+		interface IEngine;
+		interface IStats;
+		interface ICreateCar;
+	}
+}

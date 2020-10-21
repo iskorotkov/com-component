@@ -41,7 +41,7 @@ STDMETHODIMP CoCar::QueryInterface(const IID& riid, void** pIFace)
 	}
 	else if (riid == IID_IDispatch)
 	{
-		*pIFace = static_cast<IDispatch*>(this);
+		*pIFace = static_cast<IDispatch*>(static_cast<IEngine*>(this));
 	}
 	else if (riid == IID_IEngine)
 	{

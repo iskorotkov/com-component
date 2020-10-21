@@ -13,8 +13,8 @@ namespace CarCsClient
             var car = Activator.CreateInstance(carType!);
 
             var iDisp = (IDispatch) car;
-            var count = iDisp!.GetTypeInfoCount();
-            Console.WriteLine($"Type info count is {count}.");
+            //var count = iDisp!.GetTypeInfoCount();
+            //Console.WriteLine($"Type info count is {count}.");
 
             var iEngine = (IEngine) car;
             iEngine!.SpeedUp();
@@ -38,21 +38,21 @@ namespace CarCsClient
     {
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("08CCACA1-3342-4689-AE23-72B6329E9FD7")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("08CCACA1-3342-4689-AE23-72B6329E9FD7")]
     public interface ICreateCar
     {
         void SetPetName(string petName);
         void SetMaxSpeed(int maxSp);
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("A9490BD6-E266-411A-9511-5EC1250A3328")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("A9490BD6-E266-411A-9511-5EC1250A3328")]
     public interface IStats
     {
         void DisplayStats();
         void GetPetName(ref string petName);
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("1F3FCB12-5EB6-4E4F-94CF-99642FFC50C0")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("1F3FCB12-5EB6-4E4F-94CF-99642FFC50C0")]
     public interface IEngine
     {
         void SpeedUp();
@@ -60,7 +60,7 @@ namespace CarCsClient
         void GetCurSpeed(ref int maxSpeed);
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsIUnknown), Guid("00020400-0000-0000-C000-000000000046")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("00020400-0000-0000-C000-000000000046")]
     public interface IDispatch
     {
         int GetTypeInfoCount();

@@ -1,14 +1,24 @@
 #pragma once
+#include <atlbase.h>
+#include <atlctl.h>
 #include "interfaces.h"
 
 const int MAX_SPEED = 1000;
 const int MAX_NAME_LENGTH = 256;
 
-class CoCar : public IEngine, public ICreateCar, public IStats, public IDispatch
+class CoCar : public IEngine, public ICreateCar, public IStats
 {
 public:
 	CoCar();
 	virtual ~CoCar();
+
+	DECLARE_REGISTRY_RESOURCEID(101)
+
+BEGIN_COM_MAP(CoCar)
+	COM_INTERFACE_ENTRY(IEngine)
+	COM_INTERFACE_ENTRY(ICreateCar)
+	COM_INTERFACE_ENTRY(IStats)
+END_COM_MAP()
 
 	HRESULT Init();
 
