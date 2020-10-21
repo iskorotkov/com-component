@@ -13,8 +13,7 @@ namespace CarCsClient
             var carType = Type.GetTypeFromProgID("CarComponent.Car");
             dynamic car = Activator.CreateInstance(carType!);
 
-            var inter = carType.GetInterfaces();
-
+            var interfaces = carType.GetInterfaces();
             car.DisplayStats();
             carType.InvokeMember("SpeedUp", BindingFlags.InvokeMethod, null, car, new object[] { });
 
@@ -39,26 +38,21 @@ namespace CarCsClient
         }
     }
 
-    [ComVisible(true), ComImport, Guid("66877B94-1323-4E29-9160-9058BC47439B")]
-    public class Car
-    {
-    }
-
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("4B430A60-C4B2-41EB-9E4A-14264301853F")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("F426AD9B-76F0-46BE-95DE-0B22C84EB89D")]
     public interface ICreateCar
     {
         void SetPetName(string petName);
         void SetMaxSpeed(int maxSp);
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("78B68366-A69B-46E2-B272-D0FD80E1D350")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("46073856-735C-4D0A-8C30-80BF4ECFC2DC")]
     public interface IStats
     {
         void DisplayStats();
         void GetPetName(ref string petName);
     }
 
-    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("AFC519C1-8A5F-45FF-92E8-507464435F89")]
+    [ComImport, InterfaceType(ComInterfaceType.InterfaceIsDual), Guid("9E37E773-86BD-4DD5-8F74-30536AAFC3B3")]
     public interface IEngine
     {
         void SpeedUp();
