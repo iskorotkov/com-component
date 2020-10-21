@@ -24,7 +24,9 @@
     <ClCompile Include="CoCar.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="CarComponent.rgs" />
     <None Include="CarComponent.def" />
+    <None Include="CoCar.rgs" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="CarComponent.idl" />
@@ -33,6 +35,10 @@
     <ClInclude Include="CarComponent_h.h" />
     <ClInclude Include="CoCar.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CarComponent.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -122,7 +128,7 @@
       <InterfaceIdentifierFileName>CarComponent_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>CarComponent_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
+      <TypeLibraryName>CarComponent.tlb</TypeLibraryName>
       <DllDataFileName>
       </DllDataFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
@@ -157,7 +163,7 @@
       <InterfaceIdentifierFileName>CarComponent_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>CarComponent_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
+      <TypeLibraryName>CarComponent.tlb</TypeLibraryName>
       <DllDataFileName>
       </DllDataFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
@@ -193,7 +199,7 @@
       <InterfaceIdentifierFileName>CarComponent_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>CarComponent_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
+      <TypeLibraryName>CarComponent.tlb</TypeLibraryName>
       <DllDataFileName>
       </DllDataFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
@@ -230,7 +236,7 @@
       <InterfaceIdentifierFileName>CarComponent_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>CarComponent_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
-      <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
+      <TypeLibraryName>CarComponent.tlb</TypeLibraryName>
       <DllDataFileName>
       </DllDataFileName>
       <ValidateAllParameters>true</ValidateAllParameters>
