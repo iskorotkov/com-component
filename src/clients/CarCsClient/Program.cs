@@ -13,8 +13,8 @@ namespace CarCsClient
             var car = Activator.CreateInstance(carType!);
 
             var iDisp = (IDispatch) car;
-            //var count = iDisp!.GetTypeInfoCount();
-            //Console.WriteLine($"Type info count is {count}.");
+            var count = iDisp!.GetTypeInfoCount();
+            Console.WriteLine($"Type info count is {count}.");
 
             var iEngine = (IEngine) car;
             iEngine!.SpeedUp();
