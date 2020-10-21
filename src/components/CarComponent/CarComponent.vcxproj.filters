@@ -21,22 +21,22 @@
     <ClCompile Include="CoCar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CarComponent_i.c">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="CarComponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CarComponent_i.c">
+      <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CoCar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CarComponent_h.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CarComponent_h.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
