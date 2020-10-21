@@ -21,6 +21,9 @@ namespace CarCsClient
             var count = iDisp!.GetTypeInfoCount();
             Console.WriteLine($"Type info count is {count}.");
 
+            //var dispId = new int []{};
+            //iDisp.GetIDsOfNames(Guid.Empty, new [] {"SetMaxSpeed"}, 1, 0x800, dispId);
+
             var iEngine = (IEngine) car;
             iEngine!.SpeedUp();
             var speed = 0;
