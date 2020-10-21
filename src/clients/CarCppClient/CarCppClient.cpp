@@ -1,14 +1,14 @@
 #include <iostream>
 #include <Windows.h>
-#include "../../components/CarComponent/iid.h"
-#include "../../components/CarComponent/interfaces.h"
+#include "../../components/CarComponent/CarComponent_i.h"
+#include "../../components/CarComponent/CarComponent_i.c"
 
 int main()
 {
 	CoInitialize(nullptr);
 
 	IClassFactory* pCF = nullptr;
-	CoGetClassObject(CLSID_CoCar, CLSCTX_INPROC_SERVER, nullptr, IID_IClassFactory,
+	CoGetClassObject(CLSID_Car, CLSCTX_INPROC_SERVER, nullptr, IID_IClassFactory,
 		reinterpret_cast<void**>(&pCF));
 
 	ICreateCar* pICreateCar = nullptr;
