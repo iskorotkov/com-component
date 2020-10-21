@@ -1,11 +1,7 @@
 #include <atlbase.h>
 #include <atlcom.h>
-#include <initguid.h>
-#include <Windows.h>
 #include "carinprocserver_h.h"
-#include "carinprocserver_i.c"
 #include "CoCar.h"
-#include "Resources.h"
 
 CComModule _Module;
 
@@ -29,23 +25,23 @@ BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
 /////////////////////////////////////////////////////////////////////////////
 // Used to determine whether the DLL can be unloaded by OLE
 
-STDAPI DllCanUnloadNow(void)
-{
-	return (_Module.GetLockCount()==0) ? S_OK : S_FALSE;
-}
+//STDAPI DllCanUnloadNow()
+//{
+//	return (_Module.GetLockCount()==0) ? S_OK : S_FALSE;
+//}
 
 /////////////////////////////////////////////////////////////////////////////
 // Returns a class factory to create an object of the requested type
 
-STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
-{
-	return _Module.GetClassObject(rclsid, riid, ppv);
-}
+//STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, void** ppv)
+//{
+//	return _Module.GetClassObject(rclsid, riid, ppv);
+//}
 
 /////////////////////////////////////////////////////////////////////////////
 // DllRegisterServer - Adds entries to the system registry
 
-STDAPI DllRegisterServer(void)
+STDAPI DllRegisterServer()
 {
 	// registers object, typelib and all interfaces in typelib
 	return _Module.RegisterServer(TRUE);
@@ -54,7 +50,7 @@ STDAPI DllRegisterServer(void)
 /////////////////////////////////////////////////////////////////////////////
 // DllUnregisterServer - Removes entries from the system registry
 
-STDAPI DllUnregisterServer(void)
+STDAPI DllUnregisterServer()
 {
 	_Module.UnregisterServer();
 	return S_OK;
