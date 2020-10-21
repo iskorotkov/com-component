@@ -22,7 +22,6 @@
     <ClCompile Include="CarComponent.cpp" />
     <ClCompile Include="CarComponent_i.c" />
     <ClCompile Include="CoCar.cpp" />
-    <ClCompile Include="dllmain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="CarComponent.def" />
@@ -33,7 +32,6 @@
   <ItemGroup>
     <ClInclude Include="CarComponent_h.h" />
     <ClInclude Include="CoCar.h" />
-    <ClInclude Include="dllmain.h" />
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -123,6 +121,7 @@
       <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
       <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <TypeLibFormat>NewFormat</TypeLibFormat>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -156,6 +155,7 @@
       <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
       <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <TypeLibFormat>NewFormat</TypeLibFormat>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -190,6 +190,7 @@
       <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
       <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <TypeLibFormat>NewFormat</TypeLibFormat>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
@@ -225,6 +226,7 @@
       <TypeLibraryName>$(IntDir)CarComponent.tlb</TypeLibraryName>
       <DllDataFileName />
       <ValidateAllParameters>true</ValidateAllParameters>
+      <TypeLibFormat>NewFormat</TypeLibFormat>
     </Midl>
     <ResourceCompile>
       <Culture>0x0409</Culture>
