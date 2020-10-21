@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -11,6 +12,8 @@ namespace CarCsClient
         {
             var carType = Type.GetTypeFromProgID("CarComponent.CoCar");
             var car = Activator.CreateInstance(carType!);
+
+            carType.InvokeMember("SpeedUp", BindingFlags.InvokeMethod, null, car, new object[] { });
 
             var iDisp = (IDispatch) car;
             var count = iDisp!.GetTypeInfoCount();
