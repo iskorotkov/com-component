@@ -19,20 +19,6 @@ CoCar::~CoCar()
 	--_objCount;
 }
 
-HRESULT CoCar::Init()
-{
-	ITypeLib* pTypeLib;
-	if (FAILED(LoadRegTypeLib(CLSID_CoCar, 1, 0, LANG_NEUTRAL, &pTypeLib)))
-	{
-		return E_FAIL;
-	}
-
-	const auto hr = pTypeLib->GetTypeInfoOfGuid(CLSID_CoCar, &_typeInfo);
-
-	pTypeLib->Release();
-	return hr;
-}
-
 STDMETHODIMP CoCar::SpeedUp()
 {
 	_curSpeed += 10;

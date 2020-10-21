@@ -19,12 +19,9 @@ class ATL_NO_VTABLE CoCar :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CoCar, &CLSID_CoCar>,
 	public IDispatchImpl<ICar, &IID_ICar, &LIBID_CarComponent, 1, 0>,
-	//public IDispatchImpl<IEngine, &IID_IEngine, &LIBID_CarComponent, 1, 0>,
-	//public IDispatchImpl<IStats, &IID_IStats, &LIBID_CarComponent, 1, 0>,
-	//public IDispatchImpl<ICreateCar, &IID_ICreateCar, &LIBID_CarComponent, 1, 0>
-	public IEngine,
-	public IStats,
-	public ICreateCar
+	public IDispatchImpl<IEngine, &IID_IEngine, &LIBID_CarComponent, 1, 0>,
+	public IDispatchImpl<IStats, &IID_IStats, &LIBID_CarComponent, 1, 0>,
+	public IDispatchImpl<ICreateCar, &IID_ICreateCar, &LIBID_CarComponent, 1, 0>
 {
 public:
 	CoCar();
@@ -42,8 +39,6 @@ BEGIN_COM_MAP(CoCar)
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT Init();
-
 	// IEngine
 	STDMETHODIMP SpeedUp();
 	STDMETHODIMP GetMaxSpeed(int* maxSpeed);
@@ -58,12 +53,9 @@ BEGIN_COM_MAP(CoCar)
 	STDMETHODIMP SetMaxSpeed(int maxSp);
 
 private:
-	DWORD _refCount = 0;
 	BSTR _petName;
 	int _maxSpeed = 0;
 	int _curSpeed = 0;
-
-	ITypeInfo* _typeInfo{};
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(Car), CoCar)

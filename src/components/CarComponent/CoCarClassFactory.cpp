@@ -79,7 +79,6 @@ HRESULT CoCarClassFactory::CreateInstance(LPUNKNOWN pUnkOuter, const IID& riid, 
 		return E_OUTOFMEMORY;
 	}
 
-	pCarObj->Init();
 	const auto hr = pCarObj->QueryInterface(riid, ppv);
 
 	if (FAILED(hr))
