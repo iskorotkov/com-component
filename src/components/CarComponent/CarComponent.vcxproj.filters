@@ -24,6 +24,9 @@
     <ClInclude Include="carinprocserver_h.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoCar.cpp">
@@ -38,13 +41,18 @@
     <ClCompile Include="carinprocserver_p.c">
       <Filter>Generated Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="carinprocserver.def" />
+    <ClCompile Include="dlldata.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="carinprocserver.idl">
       <Filter>Source Files</Filter>
     </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="carinprocserver.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

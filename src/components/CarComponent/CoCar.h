@@ -2,6 +2,7 @@
 #include <atlbase.h>
 #include <atlctl.h>
 #include "carinprocserver_h.h"
+#include "Resources.h"
 
 const int MAX_SPEED = 1000;
 const int MAX_NAME_LENGTH = 256;
@@ -18,7 +19,7 @@ public:
 	CoCar();
 	virtual ~CoCar();
 
-	DECLARE_REGISTRY_RESOURCEID(101)
+	DECLARE_REGISTRY_RESOURCEID(IDR_CAR)
 
 BEGIN_COM_MAP(CoCar)
 		COM_INTERFACE_ENTRY(ICar)
@@ -27,8 +28,6 @@ BEGIN_COM_MAP(CoCar)
 		COM_INTERFACE_ENTRY(ICreateCar)
 		COM_INTERFACE_ENTRY(IStats)
 		END_COM_MAP()
-
-	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
 	// IEngine
 	STDMETHODIMP SpeedUp();
@@ -48,5 +47,3 @@ private:
 	int _maxSpeed = 0;
 	int _curSpeed = 0;
 };
-
-OBJECT_ENTRY_AUTO(__uuidof(Car), CoCar)

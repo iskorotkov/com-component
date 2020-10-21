@@ -1,5 +1,3 @@
-#include "olectl.h"
-
 import "oaidl.idl";
 import "ocidl.idl";
 import "objidl.idl";
@@ -63,6 +61,7 @@ interface ICar : IDispatch
 ]
 library CarComponent
 {
+	importlib("stdole32.tlb");
 	importlib("stdole2.tlb");
 
 	[

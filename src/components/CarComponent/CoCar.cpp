@@ -1,11 +1,8 @@
 #include "CoCar.h"
 
-extern DWORD _objCount;
-
 CoCar::CoCar()
 {
 	_petName = SysAllocString(L"Default Pet Name");
-	++_objCount;
 }
 
 CoCar::~CoCar()
@@ -14,7 +11,6 @@ CoCar::~CoCar()
 	{
 		SysFreeString(_petName);
 	}
-	--_objCount;
 }
 
 STDMETHODIMP CoCar::SpeedUp()

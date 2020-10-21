@@ -1,8 +1,11 @@
 #include <atlbase.h>
 #include <atlcom.h>
+#include <initguid.h>
 #include <Windows.h>
 #include "carinprocserver_h.h"
+#include "carinprocserver_i.c"
 #include "CoCar.h"
+#include "Resources.h"
 
 CComModule _Module;
 
