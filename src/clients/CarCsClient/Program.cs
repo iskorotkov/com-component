@@ -11,8 +11,11 @@ namespace CarCsClient
         private static void Main()
         {
             var carType = Type.GetTypeFromProgID("CarComponent.Car");
-            var car = Activator.CreateInstance(carType!);
+            dynamic car = Activator.CreateInstance(carType!);
 
+            var inter = carType.GetInterfaces();
+
+            car.DisplayStats();
             carType.InvokeMember("SpeedUp", BindingFlags.InvokeMethod, null, car, new object[] { });
 
             var iDisp = (IDispatch) car;
