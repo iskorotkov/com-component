@@ -105,7 +105,7 @@ EXTERN_C const IID IID_IEngine;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("1F3FCB12-5EB6-4E4F-94CF-99642FFC50C0")
+    MIDL_INTERFACE("AFC519C1-8A5F-45FF-92E8-507464435F89")
     IEngine : public IUnknown
     {
     public:
@@ -203,7 +203,7 @@ EXTERN_C const IID IID_IStats;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("A9490BD6-E266-411A-9511-5EC1250A3328")
+    MIDL_INTERFACE("78B68366-A69B-46E2-B272-D0FD80E1D350")
     IStats : public IUnknown
     {
     public:
@@ -291,7 +291,7 @@ EXTERN_C const IID IID_ICreateCar;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("08CCACA1-3342-4689-AE23-72B6329E9FD7")
+    MIDL_INTERFACE("4B430A60-C4B2-41EB-9E4A-14264301853F")
     ICreateCar : public IUnknown
     {
     public:
@@ -381,7 +381,7 @@ EXTERN_C const IID IID_ICar;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("dda960f8-06dc-47e1-8920-6f3d7d36464d")
+    MIDL_INTERFACE("20DD46D3-C45A-4409-8517-12020117D58F")
     ICar : public IDispatch
     {
     public:
@@ -504,7 +504,7 @@ EXTERN_C const CLSID CLSID_Car;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("97B98437-966B-4F72-9527-363603BD8572")
+class DECLSPEC_UUID("66877B94-1323-4E29-9160-9058BC47439B")
 Car;
 #endif
 #endif /* __CarComponent_LIBRARY_DEFINED__ */
