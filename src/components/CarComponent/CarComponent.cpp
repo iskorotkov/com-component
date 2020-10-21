@@ -23,8 +23,10 @@ STDAPI DllGetClassObject(_In_ REFCLSID rclsid, _In_ REFIID riid, _Outptr_ LPVOID
 _Use_decl_annotations_
 STDAPI DllRegisterServer(void)
 {
+	MessageBox(nullptr, TEXT("F"), TEXT(""), MB_OK);
 	// registers object, typelib and all interfaces in typelib
 	HRESULT hr = _AtlModule.DllRegisterServer();
+	MessageBox(nullptr, TEXT("F2"), TEXT(""), MB_OK);
 	return hr;
 }
 
