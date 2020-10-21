@@ -1,66 +1,44 @@
-#include <atlalloc.h>
-#include <atlbase.h>
-#include <atlcom.h>
-#include "CoCar.h"
-#include "CarComponent_h.h"
+// CarComponent.cpp : Implementation of DLL Exports.
 
-CComModule _Module;
+#include "pch.h"
+#include "framework.h"
+#include "resource.h"
+#include "CarComponent_i.h"
+#include "dllmain.h"
 
-BEGIN_OBJECT_MAP(ObjectMap)
-	OBJECT_ENTRY(CLSID_Car, CoCar)
-END_OBJECT_MAP()
+using namespace ATL;
 
-/////////////////////////////////////////////////////////////////////////////
-// DLL Entry Point
-
-extern "C"
-BOOL WINAPI DllMain(HINSTANCE hInstance, DWORD dwReason, LPVOID /*lpReserved*/)
-{
-	if (dwReason == DLL_PROCESS_ATTACH)
-	{
-		_Module.Init(ObjectMap, hInstance);
-		DisableThreadLibraryCalls(hInstance);
-	}
-	else if (dwReason == DLL_PROCESS_DETACH)
-		_Module.Term();
-	return TRUE;    // ok
-}
-
-/////////////////////////////////////////////////////////////////////////////
-// Used to determine whether the DLL can be unloaded by OLE
-
+// Used to determine whether the DLL can be unloaded by OLE.
+_Use_decl_annotations_
 STDAPI DllCanUnloadNow(void)
 {
-	return (_Module.GetLockCount()==0) ? S_OK : S_FALSE;
+	return _AtlModule.DllCanUnloadNow();
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// Returns a class factory to create an object of the requested type
-
-STDAPI DllGetClassObject(REFCLSID rclsid, REFIID riid, LPVOID* ppv)
+// Returns a class factory to create an object of the requested type.
+_Use_decl_annotations_
+STDAPI DllGetClassObject(_In_ REFCLSID rclsid, _In_ REFIID riid, _Outptr_ LPVOID* ppv)
 {
-	return _Module.GetClassObject(rclsid, riid, ppv);
+	return _AtlModule.DllGetClassObject(rclsid, riid, ppv);
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// DllRegisterServer - Adds entries to the system registry
-
+// DllRegisterServer - Adds entries to the system registry.
+_Use_decl_annotations_
 STDAPI DllRegisterServer(void)
 {
 	// registers object, typelib and all interfaces in typelib
-	return _Module.RegisterServer(TRUE);
+	HRESULT hr = _AtlModule.DllRegisterServer();
+	return hr;
 }
 
-/////////////////////////////////////////////////////////////////////////////
-// DllUnregisterServer - Removes entries from the system registry
-
+// DllUnregisterServer - Removes entries from the system registry.
+_Use_decl_annotations_
 STDAPI DllUnregisterServer(void)
 {
-	_Module.UnregisterServer();
-	return S_OK;
+	HRESULT hr = _AtlModule.DllUnregisterServer();
+	return hr;
 }
 
-/////////////////////////////////////////////////////////////////////////////
 // DllInstall - Adds/Removes entries to the system registry per user per machine.
 STDAPI DllInstall(BOOL bInstall, _In_opt_ LPCWSTR pszCmdLine)
 {
@@ -75,20 +53,13 @@ STDAPI DllInstall(BOOL bInstall, _In_opt_ LPCWSTR pszCmdLine)
 		}
 	}
 
-	//MessageBox(nullptr, TEXT("Ready to install"), TEXT(""), MB_OK);
 	if (bInstall)
 	{
-		//MessageBox(nullptr, TEXT("Before registering server"), TEXT(""), MB_OK);
 		hr = DllRegisterServer();
-		//MessageBox(nullptr, TEXT("After registering server"), TEXT(""), MB_OK);
-
 		if (FAILED(hr))
 		{
-			//MessageBox(nullptr, TEXT("Server registration failed"), TEXT(""), MB_OK);
 			DllUnregisterServer();
 		}
-
-		//MessageBox(nullptr, TEXT("Server registration completed"), TEXT(""), MB_OK);
 	}
 	else
 	{

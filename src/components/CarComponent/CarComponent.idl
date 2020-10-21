@@ -1,50 +1,15 @@
-#include "olectl.h"
+// CarComponent.idl : IDL source for CarComponent
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (CarComponent.tlb) and marshalling code.
+
 import "oaidl.idl";
 import "ocidl.idl";
 
 [
 	object,
-	uuid(AFC519C1-8A5F-45FF-92E8-507464435F89),
-	dual,
-	helpstring("IEngine Interface"),
-	pointer_default(unique)
-]
-interface IEngine : IUnknown
-{
-	HRESULT SpeedUp();
-	HRESULT GetMaxSpeed([out] int* maxSpeed);
-	HRESULT GetCurSpeed([out] int* curSpeed);
-}
-
-[
-	object,
-	uuid(78B68366-A69B-46E2-B272-D0FD80E1D350),
-	dual,
-	helpstring("IStats Interface"),
-	pointer_default(unique)
-]
-interface IStats : IUnknown
-{
-	HRESULT DisplayStats();
-	HRESULT GetPetName([out] BSTR* petName);
-}
-
-[
-	object,
-	uuid(4B430A60-C4B2-41EB-9E4A-14264301853F),
-	dual,
-	helpstring("ICreateCar Interface"),
-	pointer_default(unique)
-]
-interface ICreateCar : IUnknown
-{
-	HRESULT SetPetName([in] BSTR maxSpeed);
-	HRESULT SetMaxSpeed([in] int curSpeed);
-}
-
-[
-	object,
-	uuid(20DD46D3-C45A-4409-8517-12020117D58F),
+	uuid(a3194885-8306-4df2-ab44-abcecec6c700),
 	dual,
 	nonextensible,
 	pointer_default(unique)
@@ -52,28 +17,20 @@ interface ICreateCar : IUnknown
 interface ICar : IDispatch
 {
 };
-
 [
-	uuid(E1CE35DD-4FBB-47B0-8643-2C5D19932968),
+	uuid(09b937df-9d93-4edb-9677-35ac8800d588),
 	version(1.0),
-	helpstring("Car Component 1.0 Type Library")
 ]
-library CarComponent
+library CarComponentLib
 {
-	importlib("stdole32.tlb");
 	importlib("stdole2.tlb");
-
 	[
-		uuid(66877B94-1323-4E29-9160-9058BC47439B),
-		helpstring("Car Class"),
+		uuid(c779aa99-9945-40b6-b144-26b1cfe0a12c)
 	]
 	coclass Car
 	{
 		[default] interface ICar;
-		interface IEngine;
-		interface IStats;
-		interface ICreateCar;
-	}
-}
+	};
+};
 
 import "shobjidl.idl";

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <Windows.h>
-#include "../../components/CarComponent/CarComponent_h.h"
+#include "../../components/CarComponent/CarComponent_i.h"
 #include "../../components/CarComponent/CarComponent_i.c"
 
 int main()

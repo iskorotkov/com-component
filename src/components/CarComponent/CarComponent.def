@@ -1,4 +1,6 @@
-LIBRARY "CarComponent"
+; CarComponent.def : Declares the module parameters.
+
+LIBRARY
 
 EXPORTS
 	DllCanUnloadNow		PRIVATE

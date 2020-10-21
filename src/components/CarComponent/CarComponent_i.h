@@ -44,27 +44,6 @@
 
 /* Forward Declarations */ 
 
-#ifndef __IEngine_FWD_DEFINED__
-#define __IEngine_FWD_DEFINED__
-typedef interface IEngine IEngine;
-
-#endif 	/* __IEngine_FWD_DEFINED__ */
-
-
-#ifndef __IStats_FWD_DEFINED__
-#define __IStats_FWD_DEFINED__
-typedef interface IStats IStats;
-
-#endif 	/* __IStats_FWD_DEFINED__ */
-
-
-#ifndef __ICreateCar_FWD_DEFINED__
-#define __ICreateCar_FWD_DEFINED__
-typedef interface ICreateCar ICreateCar;
-
-#endif 	/* __ICreateCar_FWD_DEFINED__ */
-
-
 #ifndef __ICar_FWD_DEFINED__
 #define __ICar_FWD_DEFINED__
 typedef interface ICar ICar;
@@ -94,282 +73,6 @@ extern "C"{
 #endif 
 
 
-#ifndef __IEngine_INTERFACE_DEFINED__
-#define __IEngine_INTERFACE_DEFINED__
-
-/* interface IEngine */
-/* [unique][helpstring][dual][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IEngine;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("AFC519C1-8A5F-45FF-92E8-507464435F89")
-    IEngine : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE SpeedUp( void) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetMaxSpeed( 
-            /* [out] */ int *maxSpeed) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetCurSpeed( 
-            /* [out] */ int *curSpeed) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IEngineVtbl
-    {
-        BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IEngine * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IEngine * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            IEngine * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SpeedUp )( 
-            IEngine * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetMaxSpeed )( 
-            IEngine * This,
-            /* [out] */ int *maxSpeed);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetCurSpeed )( 
-            IEngine * This,
-            /* [out] */ int *curSpeed);
-        
-        END_INTERFACE
-    } IEngineVtbl;
-
-    interface IEngine
-    {
-        CONST_VTBL struct IEngineVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IEngine_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IEngine_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IEngine_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IEngine_SpeedUp(This)	\
-    ( (This)->lpVtbl -> SpeedUp(This) ) 
-
-#define IEngine_GetMaxSpeed(This,maxSpeed)	\
-    ( (This)->lpVtbl -> GetMaxSpeed(This,maxSpeed) ) 
-
-#define IEngine_GetCurSpeed(This,curSpeed)	\
-    ( (This)->lpVtbl -> GetCurSpeed(This,curSpeed) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IEngine_INTERFACE_DEFINED__ */
-
-
-#ifndef __IStats_INTERFACE_DEFINED__
-#define __IStats_INTERFACE_DEFINED__
-
-/* interface IStats */
-/* [unique][helpstring][dual][uuid][object] */ 
-
-
-EXTERN_C const IID IID_IStats;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("78B68366-A69B-46E2-B272-D0FD80E1D350")
-    IStats : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE DisplayStats( void) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE GetPetName( 
-            /* [out] */ BSTR *petName) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct IStatsVtbl
-    {
-        BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            IStats * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            IStats * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            IStats * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *DisplayStats )( 
-            IStats * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *GetPetName )( 
-            IStats * This,
-            /* [out] */ BSTR *petName);
-        
-        END_INTERFACE
-    } IStatsVtbl;
-
-    interface IStats
-    {
-        CONST_VTBL struct IStatsVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define IStats_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define IStats_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define IStats_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define IStats_DisplayStats(This)	\
-    ( (This)->lpVtbl -> DisplayStats(This) ) 
-
-#define IStats_GetPetName(This,petName)	\
-    ( (This)->lpVtbl -> GetPetName(This,petName) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __IStats_INTERFACE_DEFINED__ */
-
-
-#ifndef __ICreateCar_INTERFACE_DEFINED__
-#define __ICreateCar_INTERFACE_DEFINED__
-
-/* interface ICreateCar */
-/* [unique][helpstring][dual][uuid][object] */ 
-
-
-EXTERN_C const IID IID_ICreateCar;
-
-#if defined(__cplusplus) && !defined(CINTERFACE)
-    
-    MIDL_INTERFACE("4B430A60-C4B2-41EB-9E4A-14264301853F")
-    ICreateCar : public IUnknown
-    {
-    public:
-        virtual HRESULT STDMETHODCALLTYPE SetPetName( 
-            /* [in] */ BSTR maxSpeed) = 0;
-        
-        virtual HRESULT STDMETHODCALLTYPE SetMaxSpeed( 
-            /* [in] */ int curSpeed) = 0;
-        
-    };
-    
-    
-#else 	/* C style interface */
-
-    typedef struct ICreateCarVtbl
-    {
-        BEGIN_INTERFACE
-        
-        HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
-            ICreateCar * This,
-            /* [in] */ REFIID riid,
-            /* [annotation][iid_is][out] */ 
-            _COM_Outptr_  void **ppvObject);
-        
-        ULONG ( STDMETHODCALLTYPE *AddRef )( 
-            ICreateCar * This);
-        
-        ULONG ( STDMETHODCALLTYPE *Release )( 
-            ICreateCar * This);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetPetName )( 
-            ICreateCar * This,
-            /* [in] */ BSTR maxSpeed);
-        
-        HRESULT ( STDMETHODCALLTYPE *SetMaxSpeed )( 
-            ICreateCar * This,
-            /* [in] */ int curSpeed);
-        
-        END_INTERFACE
-    } ICreateCarVtbl;
-
-    interface ICreateCar
-    {
-        CONST_VTBL struct ICreateCarVtbl *lpVtbl;
-    };
-
-    
-
-#ifdef COBJMACROS
-
-
-#define ICreateCar_QueryInterface(This,riid,ppvObject)	\
-    ( (This)->lpVtbl -> QueryInterface(This,riid,ppvObject) ) 
-
-#define ICreateCar_AddRef(This)	\
-    ( (This)->lpVtbl -> AddRef(This) ) 
-
-#define ICreateCar_Release(This)	\
-    ( (This)->lpVtbl -> Release(This) ) 
-
-
-#define ICreateCar_SetPetName(This,maxSpeed)	\
-    ( (This)->lpVtbl -> SetPetName(This,maxSpeed) ) 
-
-#define ICreateCar_SetMaxSpeed(This,curSpeed)	\
-    ( (This)->lpVtbl -> SetMaxSpeed(This,curSpeed) ) 
-
-#endif /* COBJMACROS */
-
-
-#endif 	/* C style interface */
-
-
-
-
-#endif 	/* __ICreateCar_INTERFACE_DEFINED__ */
-
-
 #ifndef __ICar_INTERFACE_DEFINED__
 #define __ICar_INTERFACE_DEFINED__
 
@@ -381,7 +84,7 @@ EXTERN_C const IID IID_ICar;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("20DD46D3-C45A-4409-8517-12020117D58F")
+    MIDL_INTERFACE("a3194885-8306-4df2-ab44-abcecec6c700")
     ICar : public IDispatch
     {
     public:
@@ -491,35 +194,25 @@ EXTERN_C const IID IID_ICar;
 
 
 
-#ifndef __CarComponent_LIBRARY_DEFINED__
-#define __CarComponent_LIBRARY_DEFINED__
+#ifndef __CarComponentLib_LIBRARY_DEFINED__
+#define __CarComponentLib_LIBRARY_DEFINED__
 
-/* library CarComponent */
-/* [helpstring][version][uuid] */ 
+/* library CarComponentLib */
+/* [version][uuid] */ 
 
 
-EXTERN_C const IID LIBID_CarComponent;
+EXTERN_C const IID LIBID_CarComponentLib;
 
 EXTERN_C const CLSID CLSID_Car;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("66877B94-1323-4E29-9160-9058BC47439B")
+class DECLSPEC_UUID("c779aa99-9945-40b6-b144-26b1cfe0a12c")
 Car;
 #endif
-#endif /* __CarComponent_LIBRARY_DEFINED__ */
+#endif /* __CarComponentLib_LIBRARY_DEFINED__ */
 
 /* Additional Prototypes for ALL interfaces */
-
-unsigned long             __RPC_USER  BSTR_UserSize(     unsigned long *, unsigned long            , BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserMarshal(  unsigned long *, unsigned char *, BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserUnmarshal(unsigned long *, unsigned char *, BSTR * ); 
-void                      __RPC_USER  BSTR_UserFree(     unsigned long *, BSTR * ); 
-
-unsigned long             __RPC_USER  BSTR_UserSize64(     unsigned long *, unsigned long            , BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserMarshal64(  unsigned long *, unsigned char *, BSTR * ); 
-unsigned char * __RPC_USER  BSTR_UserUnmarshal64(unsigned long *, unsigned char *, BSTR * ); 
-void                      __RPC_USER  BSTR_UserFree64(     unsigned long *, BSTR * ); 
 
 /* end of Additional Prototypes */
 
