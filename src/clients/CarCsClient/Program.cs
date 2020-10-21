@@ -10,7 +10,7 @@ namespace CarCsClient
         [STAThread]
         private static void Main()
         {
-            var carType = Type.GetTypeFromProgID("CarComponent.CoCar");
+            var carType = Type.GetTypeFromProgID("CarComponent.Car");
             var car = Activator.CreateInstance(carType!);
 
             carType.InvokeMember("SpeedUp", BindingFlags.InvokeMethod, null, car, new object[] { });
