@@ -23,10 +23,10 @@ STDAPI DllGetClassObject(_In_ REFCLSID rclsid, _In_ REFIID riid, _Outptr_ LPVOID
 _Use_decl_annotations_
 STDAPI DllRegisterServer(void)
 {
-	MessageBox(nullptr, TEXT("F"), TEXT(""), MB_OK);
+	MessageBox(nullptr, TEXT("Before calling DllRegisterServer on _AtlModule"), TEXT(""), MB_OK);
 	// registers object, typelib and all interfaces in typelib
 	HRESULT hr = _AtlModule.DllRegisterServer();
-	MessageBox(nullptr, TEXT("F2"), TEXT(""), MB_OK);
+	MessageBox(nullptr, TEXT("After calling DllRegisterServer on _AtlModule"), TEXT(""), MB_OK);
 	return hr;
 }
 
@@ -52,13 +52,20 @@ STDAPI DllInstall(BOOL bInstall, _In_opt_ LPCWSTR pszCmdLine)
 		}
 	}
 
+	MessageBox(nullptr, TEXT("Ready to install"), TEXT(""), MB_OK);
 	if (bInstall)
 	{
+		MessageBox(nullptr, TEXT("Before registering server"), TEXT(""), MB_OK);
 		hr = DllRegisterServer();
+		MessageBox(nullptr, TEXT("After registering server"), TEXT(""), MB_OK);
+
 		if (FAILED(hr))
 		{
+			MessageBox(nullptr, TEXT("Server registration failed"), TEXT(""), MB_OK);
 			DllUnregisterServer();
 		}
+
+		MessageBox(nullptr, TEXT("Server registration completed"), TEXT(""), MB_OK);
 	}
 	else
 	{
