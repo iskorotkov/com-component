@@ -1,3 +1,5 @@
+#include "olectl.h"
+
 import "oaidl.idl";
 import "ocidl.idl";
 import "objidl.idl";
@@ -44,18 +46,32 @@ interface ICreateCar : IDispatch
 }
 
 [
+	object,
+	uuid(dda960f8-06dc-47e1-8920-6f3d7d36464d),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ICoCar : IDispatch
+{
+};
+
+[
 	uuid(F13E8FBA-40FF-4F09-9101-314FB9C8C1DD),
 	version(1.0),
 	helpstring("Car Component 1.0 Type Library")
 ]
 library CarComponent
 {
+	importlib("stdole2.tlb");
+
 	[
 		uuid(97B98437-966B-4F72-9527-363603BD8572),
 		helpstring("Car Class"),
 	]
 	coclass CoCar
 	{
+		[default] interface ICoCar;
 		interface IEngine;
 		interface IStats;
 		interface ICreateCar;

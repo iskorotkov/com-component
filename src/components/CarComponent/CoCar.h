@@ -1,12 +1,27 @@
 #pragma once
 #include <atlbase.h>
 #include <atlctl.h>
-#include "interfaces.h"
+#include <OAIdl.h>
+#include <OCIdl.h>
+#include <Ole2.h>
+#include <rpc.h>
+#include <rpcndr.h>
+#include <Windows.h>
+#include "iid.h"
+#include "carinprocserver_h.h"
+
+using namespace ATL;
 
 const int MAX_SPEED = 1000;
 const int MAX_NAME_LENGTH = 256;
 
-class CoCar : public IEngine, public ICreateCar, public IStats
+class CoCar :
+	public CComObjectRootEx<CComSingleThreadModel>,
+	public CComCoClass<CoCar, &CLSID_CoCar>,
+	public IDispatchImpl<ICoCar, &IID_IEngine, &LIBID_CarComponent>,
+	public IEngine,
+	public IStats,
+	public ICreateCar
 {
 public:
 	CoCar();
@@ -14,38 +29,34 @@ public:
 
 	DECLARE_REGISTRY_RESOURCEID(101)
 
-BEGIN_COM_MAP(CoCar)
-	COM_INTERFACE_ENTRY(IEngine)
-	COM_INTERFACE_ENTRY(ICreateCar)
-	COM_INTERFACE_ENTRY(IStats)
-END_COM_MAP()
+	BEGIN_COM_MAP(CoCar)
+		COM_INTERFACE_ENTRY(ICoCar)
+		COM_INTERFACE_ENTRY(IDispatch)
+		COM_INTERFACE_ENTRY(IEngine)
+		COM_INTERFACE_ENTRY(ICreateCar)
+		COM_INTERFACE_ENTRY(IStats)
+	END_COM_MAP()
+
+	/*BEGIN_MSG_MAP(CoCar)
+		DEFAULT_REFLECTION_HANDLER()
+	END_MSG_MAP()
+
+	DECLARE_PROTECT_FINAL_CONSTRUCT()*/
 
 	HRESULT Init();
 
-	// IUnknown
-	STDMETHODIMP QueryInterface(REFIID riid, void** pIFace) override;
-	STDMETHODIMP_(DWORD) AddRef() override;
-	STDMETHODIMP_(DWORD) Release() override;
-
 	// IEngine
-	STDMETHODIMP SpeedUp() override;
-	STDMETHODIMP GetMaxSpeed(int* maxSpeed) override;
-	STDMETHODIMP GetCurSpeed(int* curSpeed) override;
+	STDMETHODIMP SpeedUp();
+	STDMETHODIMP GetMaxSpeed(int* maxSpeed);
+	STDMETHODIMP GetCurSpeed(int* curSpeed);
 
 	// IStats
-	STDMETHODIMP DisplayStats() override;
-	STDMETHODIMP GetPetName(BSTR* petName) override;
+	STDMETHODIMP DisplayStats();
+	STDMETHODIMP GetPetName(BSTR* petName);
 
 	// ICreateCar
-	STDMETHODIMP SetPetName(BSTR petName) override;
-	STDMETHODIMP SetMaxSpeed(int maxSp) override;
-
-	// IDispatch
-	STDMETHODIMP GetTypeInfoCount(UINT* pctinfo) override;
-	STDMETHODIMP GetTypeInfo(UINT iTInfo, LCID lcid, ITypeInfo** ppTInfo) override;
-	STDMETHODIMP GetIDsOfNames(const IID& riid, LPOLESTR* rgszNames, UINT cNames, LCID lcid, DISPID* rgDispId) override;
-	STDMETHODIMP Invoke(DISPID dispIdMember, const IID& riid, LCID lcid, WORD wFlags, DISPPARAMS* pDispParams,
-		VARIANT* pVarResult, EXCEPINFO* pExcepInfo, UINT* puArgErr) override;
+	STDMETHODIMP SetPetName(BSTR petName);
+	STDMETHODIMP SetMaxSpeed(int maxSp);
 
 private:
 	DWORD _refCount = 0;
@@ -55,3 +66,5 @@ private:
 
 	ITypeInfo* _typeInfo{};
 };
+
+OBJECT_ENTRY_AUTO(__uuidof(CoCar), CoCar)

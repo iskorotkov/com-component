@@ -33,56 +33,6 @@ HRESULT CoCar::Init()
 	return hr;
 }
 
-STDMETHODIMP CoCar::QueryInterface(const IID& riid, void** pIFace)
-{
-	if (riid == IID_IUnknown)
-	{
-		*pIFace = static_cast<IUnknown*>(static_cast<IEngine*>(this));
-	}
-	else if (riid == IID_IDispatch)
-	{
-		*pIFace = static_cast<IDispatch*>(static_cast<IEngine*>(this));
-	}
-	else if (riid == IID_IEngine)
-	{
-		*pIFace = static_cast<IEngine*>(this);
-	}
-	else if (riid == IID_IStats)
-	{
-		*pIFace = static_cast<IStats*>(this);
-	}
-	else if (riid == IID_ICreateCar)
-	{
-		*pIFace = static_cast<ICreateCar*>(this);
-	}
-	else
-	{
-		*pIFace = nullptr;
-		return E_NOINTERFACE;
-	}
-
-	static_cast<IUnknown*>(*pIFace)->AddRef();
-	return S_OK;
-}
-
-STDMETHODIMP_(DWORD) CoCar::AddRef()
-{
-	++_refCount;
-	return _refCount;
-}
-
-STDMETHODIMP_(DWORD) CoCar::Release()
-{
-	--_refCount;
-	if (_refCount == 0)
-	{
-		delete this;
-		return 0;
-	}
-
-	return _refCount;
-}
-
 STDMETHODIMP CoCar::SpeedUp()
 {
 	_curSpeed += 10;
@@ -135,44 +85,4 @@ STDMETHODIMP CoCar::SetMaxSpeed(int maxSp)
 	}
 
 	return E_INVALIDARG;
-}
-
-STDMETHODIMP CoCar::GetTypeInfoCount(UINT* pctinfo)
-{
-	*pctinfo = 1;
-	return S_OK;
-}
-
-STDMETHODIMP CoCar::GetTypeInfo(UINT iTInfo, LCID lcid, ITypeInfo** ppTInfo)
-{
-	*ppTInfo = nullptr;
-	if (iTInfo)
-	{
-		return DISP_E_BADINDEX;
-	}
-
-	_typeInfo->AddRef();
-	*ppTInfo = _typeInfo;
-	return S_OK;
-}
-
-HRESULT CoCar::GetIDsOfNames(const IID& riid, LPOLESTR* rgszNames, UINT cNames, LCID lcid, DISPID* rgDispId)
-{
-	if (riid != IID_NULL)
-	{
-		return DISP_E_UNKNOWNINTERFACE;
-	}
-
-	return DispGetIDsOfNames(_typeInfo, rgszNames, cNames, rgDispId);
-}
-
-HRESULT CoCar::Invoke(DISPID dispIdMember, const IID& riid, LCID lcid, WORD wFlags, DISPPARAMS* pDispParams,
-	VARIANT* pVarResult, EXCEPINFO* pExcepInfo, UINT* puArgErr)
-{
-	if (riid != IID_NULL)
-	{
-		return DISP_E_UNKNOWNINTERFACE;
-	}
-
-	return DispInvoke(this, _typeInfo, dispIdMember, wFlags, pDispParams, pVarResult, pExcepInfo, puArgErr);
 }
