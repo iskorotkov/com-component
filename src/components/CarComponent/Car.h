@@ -11,34 +11,52 @@
 
 using namespace ATL;
 
+const int MAX_SPEED = 1000;
+const int MAX_NAME_LENGTH = 256;
+
 // CCar
 class ATL_NO_VTABLE CCar :
 	public CComObjectRootEx<CComSingleThreadModel>,
 	public CComCoClass<CCar, &CLSID_Car>,
-	public IDispatchImpl<ICar, &IID_ICar, &LIBID_CarComponentLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
+	public IDispatchImpl<ICar, &IID_ICar, &LIBID_CarComponentLib, /*wMajor =*/ 1, /*wMinor =*/ 0>,
+	public IDispatchImpl<IEngine, &IID_IEngine, &LIBID_CarComponentLib, 1, 0>,
+	public IDispatchImpl<IStats, &IID_IStats, &LIBID_CarComponentLib, 1, 0>,
+	public IDispatchImpl<ICreateCar, &IID_ICreateCar, &LIBID_CarComponentLib, 1, 0>
 {
 public:
-	CCar()
-	{
-	}
-
 	DECLARE_REGISTRY_RESOURCEID(106)
 
 BEGIN_COM_MAP(CCar)
 		COM_INTERFACE_ENTRY(ICar)
 		COM_INTERFACE_ENTRY(IDispatch)
+		COM_INTERFACE_ENTRY(IEngine)
+		COM_INTERFACE_ENTRY(ICreateCar)
+		COM_INTERFACE_ENTRY(IStats)
 		END_COM_MAP()
 
 	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-	HRESULT FinalConstruct()
-	{
-		return S_OK;
-	}
+	HRESULT FinalConstruct();
 
-	void FinalRelease()
-	{
-	}
+	void FinalRelease();
+
+	// IEngine
+	STDMETHODIMP SpeedUp();
+	STDMETHODIMP GetMaxSpeed(int* maxSpeed);
+	STDMETHODIMP GetCurSpeed(int* curSpeed);
+
+	// IStats
+	STDMETHODIMP DisplayStats();
+	STDMETHODIMP GetPetName(BSTR* petName);
+
+	// ICreateCar
+	STDMETHODIMP SetPetName(BSTR petName);
+	STDMETHODIMP SetMaxSpeed(int maxSp);
+
+private:
+	BSTR _petName;
+	int _maxSpeed = 0;
+	int _curSpeed = 0;
 
 public:
 };
