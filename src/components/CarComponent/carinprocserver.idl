@@ -12,7 +12,7 @@ import "wtypes.idl";
 	helpstring("IEngine Interface"),
 	pointer_default(unique)
 ]
-interface IEngine : IDispatch
+interface IEngine : IUnknown
 {
 	HRESULT SpeedUp();
 	HRESULT GetMaxSpeed([out] int* maxSpeed);
@@ -26,7 +26,7 @@ interface IEngine : IDispatch
 	helpstring("IStats Interface"),
 	pointer_default(unique)
 ]
-interface IStats : IDispatch
+interface IStats : IUnknown
 {
 	HRESULT DisplayStats();
 	HRESULT GetPetName([out] BSTR* petName);
@@ -39,7 +39,7 @@ interface IStats : IDispatch
 	helpstring("ICreateCar Interface"),
 	pointer_default(unique)
 ]
-interface ICreateCar : IDispatch
+interface ICreateCar : IUnknown
 {
 	HRESULT SetPetName([in] BSTR maxSpeed);
 	HRESULT SetMaxSpeed([in] int curSpeed);
@@ -52,7 +52,7 @@ interface ICreateCar : IDispatch
 	nonextensible,
 	pointer_default(unique)
 ]
-interface ICoCar : IDispatch
+interface ICar : IDispatch
 {
 };
 
@@ -69,9 +69,9 @@ library CarComponent
 		uuid(97B98437-966B-4F72-9527-363603BD8572),
 		helpstring("Car Class"),
 	]
-	coclass CoCar
+	coclass Car
 	{
-		[default] interface ICoCar;
+		[default] interface ICar;
 		interface IEngine;
 		interface IStats;
 		interface ICreateCar;

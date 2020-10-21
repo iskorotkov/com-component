@@ -20,6 +20,6 @@ DECLARE_INTERFACE_(ICreateCar, IUnknown)
 	STDMETHOD(SetMaxSpeed)(int maxSp) PURE;
 };
 
-DECLARE_INTERFACE_(ICoCar, IDispatch)
+DECLARE_INTERFACE_(ICar, IDispatch)
 {
 };
