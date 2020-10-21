@@ -1,7 +1,7 @@
 #include <iostream>
 #include <Windows.h>
-#include "../../components/CarComponent/carinprocserver_h.h"
-#include "../../components/CarComponent/carinprocserver_i.c"
+#include "../../components/CarComponent/CarComponent_h.h"
+#include "../../components/CarComponent/CarComponent_i.c"
 
 int main()
 {

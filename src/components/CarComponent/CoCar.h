@@ -1,8 +1,8 @@
 #pragma once
 #include <atlbase.h>
 #include <atlctl.h>
-#include "carinprocserver_h.h"
-#include "Resources.h"
+#include "CarComponent_h.h"
+#include "Resource.h"
 
 using namespace ATL;
 

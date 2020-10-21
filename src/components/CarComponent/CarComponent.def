@@ -1,7 +1,8 @@
 LIBRARY "CarComponent"
 
 EXPORTS
-	DllGetClassObject		PRIVATE
-	DllCanUnloadNow			PRIVATE
-	DllRegisterServer		PRIVATE
-	DllUnregisterServer		PRIVATE
+	DllCanUnloadNow		PRIVATE
+	DllGetClassObject	PRIVATE
+	DllRegisterServer	PRIVATE
+	DllUnregisterServer	PRIVATE
+	DllInstall			PRIVATE
