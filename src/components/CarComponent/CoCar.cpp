@@ -1,6 +1,4 @@
 #include "CoCar.h"
-#include <cstdio>
-#include "iid.h"
 
 extern DWORD _objCount;
 

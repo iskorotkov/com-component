@@ -21,17 +21,12 @@
   <ItemGroup>
     <ClInclude Include="carinprocserver_h.h" />
     <ClInclude Include="CoCar.h" />
-    <ClInclude Include="CoCarClassFactory.h" />
-    <ClInclude Include="iid.h" />
-    <ClInclude Include="interfaces.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CarInProcServer.cpp" />
     <ClCompile Include="carinprocserver_i.c" />
     <ClCompile Include="carinprocserver_p.c" />
     <ClCompile Include="CoCar.cpp" />
-    <ClCompile Include="CoCarClassFactory.cpp" />
-    <ClCompile Include="iid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="carinprocserver.def" />

@@ -18,16 +18,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="interfaces.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="iid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CoCar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CoCarClassFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="carinprocserver_h.h">
@@ -35,13 +26,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="iid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CoCar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CoCarClassFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CarInProcServer.cpp">
