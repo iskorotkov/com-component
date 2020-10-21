@@ -4,6 +4,8 @@
 #include "carinprocserver_h.h"
 #include "Resources.h"
 
+using namespace ATL;
+
 const int MAX_SPEED = 1000;
 const int MAX_NAME_LENGTH = 256;
 
@@ -47,3 +49,5 @@ private:
 	int _maxSpeed = 0;
 	int _curSpeed = 0;
 };
+
+OBJECT_ENTRY_AUTO(__uuidof(Car), CoCar)
