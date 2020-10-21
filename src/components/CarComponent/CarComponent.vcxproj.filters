@@ -18,40 +18,40 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CarInProcServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CoCar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dlldata.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CarComponent_i.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CarComponent_p.c">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="CoCar.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="carinprocserver_h.h">
-      <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="Resources.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CarComponent_h.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CoCar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CarInProcServer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="carinprocserver_i.c">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="carinprocserver_p.c">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dlldata.c">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Midl Include="carinprocserver.idl">
+    <Midl Include="CarComponent.idl">
       <Filter>Source Files</Filter>
     </Midl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="carinprocserver.def">
+    <None Include="CarComponent.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
